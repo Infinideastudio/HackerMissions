@@ -81,9 +81,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Scenes\TitleScene.cpp" />
     <ClCompile Include="Window\Window.cpp" />
     <ClInclude Include="BasicInclude.h" />
     <ClCompile Include="HackerMissions.cpp" />
+    <ClInclude Include="Scenes\BasicScene.h" />
+    <ClInclude Include="Scenes\TitleScene.h" />
     <ClInclude Include="Window\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

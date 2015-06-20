@@ -8,11 +8,17 @@ int main(int argc, char *argv[])
 
 	bool running = true;
 
+	auto GameScene = std::shared_ptr<Scene>(new Title());
+	
 	while (running) {
 
 		running = !(glfwGetKey(window, GLFW_KEY_ESCAPE) || glfwWindowShouldClose(window));  //ESCÍË³ö
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		GameScene->flush(window);
+
+		GameScene->draw();
 
 		glfwSwapBuffers(window);
 

@@ -16,6 +16,9 @@
     <Filter Include="头文件\Window">
       <UniqueIdentifier>{30b51828-b55a-4216-bd3f-abd929fa0d77}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Scenes">
+      <UniqueIdentifier>{c8059d3c-0874-4a79-bc21-0d762acd942f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HackerMissions.cpp">
@@ -24,6 +27,9 @@
     <ClCompile Include="Window\Window.cpp">
       <Filter>头文件\Window</Filter>
     </ClCompile>
+    <ClCompile Include="Scenes\TitleScene.cpp">
+      <Filter>头文件\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicInclude.h">
@@ -31,6 +37,12 @@
     </ClInclude>
     <ClInclude Include="Window\Window.h">
       <Filter>头文件\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\TitleScene.h">
+      <Filter>头文件\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\BasicScene.h">
+      <Filter>头文件\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
