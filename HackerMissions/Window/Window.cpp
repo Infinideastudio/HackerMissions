@@ -1,20 +1,19 @@
 #include "Window.h"
 
-GLFWwindow* initAndCreateWindow(int argc, char *argv[]){
-
-	if (!glfwInit()) return nullptr;
+GLFWwindow* CreateWindow(int argc, char *argv[]){
 
 	GLFWwindow* window = glfwCreateWindow(window_w, window_h, game_title.c_str(), NULL, NULL);
-	glfwSetWindowPos(window, 200, 50);
-	glViewport(0, 0, window_w, window_h);
-
-	if (!window){
+	if (window == nullptr){
 		glfwTerminate();
 		return nullptr;
 	}
-
+	glfwSetWindowPos(window, 200, 50);
+	glViewport(0, 0, window_w, window_h);
 	glfwMakeContextCurrent(window);
-	glewInit();
+	if (glewInit()){
+		glfwTerminate();
+		return nullptr;
+	}
 
 	return window;
 }
