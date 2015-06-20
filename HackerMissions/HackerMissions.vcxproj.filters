@@ -19,6 +19,9 @@
     <Filter Include="头文件\Scenes">
       <UniqueIdentifier>{c8059d3c-0874-4a79-bc21-0d762acd942f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Textures">
+      <UniqueIdentifier>{8f68d900-2c9d-4054-a077-b750be3ca6e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HackerMissions.cpp">
@@ -29,6 +32,9 @@
     </ClCompile>
     <ClCompile Include="Scenes\TitleScene.cpp">
       <Filter>头文件\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Textures\Textures.cpp">
+      <Filter>头文件\Textures</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="Scenes\BasicScene.h">
       <Filter>头文件\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Textures\Textures.h">
+      <Filter>头文件\Textures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

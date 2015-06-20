@@ -81,20 +81,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <ClCompile Include="Textures\Textures.cpp" />
-    <ClCompile Include="Window\Window.cpp" />
-    <ClInclude Include="BasicInclude.h" />
-    <ClCompile Include="HackerMissions.cpp" />
     <ClInclude Include="Textures\Textures.h" />
-=======
     <ClCompile Include="Scenes\TitleScene.cpp" />
     <ClCompile Include="Window\Window.cpp" />
     <ClInclude Include="BasicInclude.h" />
     <ClCompile Include="HackerMissions.cpp" />
     <ClInclude Include="Scenes\BasicScene.h" />
     <ClInclude Include="Scenes\TitleScene.h" />
->>>>>>> 13287583514be197ce0b7151a2e9d8953ccdc861
     <ClInclude Include="Window\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
