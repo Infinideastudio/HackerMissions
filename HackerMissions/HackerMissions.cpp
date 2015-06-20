@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 
 	while (running) {
 
-		running = !glfwGetKey(window, GLFW_KEY_ESCAPE);  //ESCÍË³ö
+		running = !(glfwGetKey(window, GLFW_KEY_ESCAPE) || glfwWindowShouldClose(window));  //ESCÍË³ö
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
