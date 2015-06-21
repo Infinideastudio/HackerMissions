@@ -19,7 +19,7 @@ void setupOpenGL()
 	glEnable(GL_ALPHA_TEST);
 	glEnable(GL_BLEND);
 	glEnable(GL_LINE_SMOOTH);
-	glDepthFunc(GL_LEQUAL);
+	glDepthFunc(GL_ALWAYS);
 	glAlphaFunc(GL_GREATER, 0.0f);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
