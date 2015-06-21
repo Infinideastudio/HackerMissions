@@ -23,7 +23,10 @@
     <Filter Include="源代码\Window">
       <UniqueIdentifier>{30b51828-b55a-4216-bd3f-abd929fa0d77}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源代码\TextRenderer">
+    <Filter Include="源代码\Renderer">
+      <UniqueIdentifier>{08827eee-a4d6-4c3e-a999-510ebcba24a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源代码\Renderer\TextRenderer">
       <UniqueIdentifier>{83d895ae-4655-454f-8456-4677e2728832}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -50,7 +53,7 @@
       <Filter>源代码\Blocks</Filter>
     </ClCompile>
     <ClCompile Include="TextRenderer\TextRenderer.cpp">
-      <Filter>源代码\TextRenderer</Filter>
+      <Filter>源代码\Renderer\TextRenderer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,7 +82,7 @@
       <Filter>源代码</Filter>
     </ClInclude>
     <ClInclude Include="TextRenderer\TextRenderer.h">
-      <Filter>源代码\TextRenderer</Filter>
+      <Filter>源代码\Renderer\TextRenderer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

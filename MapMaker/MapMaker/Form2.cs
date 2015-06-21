@@ -30,7 +30,7 @@ namespace MapMaker
             bw.Write(yall);
             byte[] temparray=new byte[xall*yall];
                             
-              for(int i=0;i<xall*yall;++i)
+              for(int i=0;i<xall*yall;i++)
               {
                int r = i / yall;
                int c = i % yall;

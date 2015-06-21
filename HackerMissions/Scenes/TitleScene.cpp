@@ -33,8 +33,7 @@ void Title::draw(){
 	}glEnd();
 
 	TextRenderer::setFontColor(1.0,1.0,1.0,1.0);
-	TextRenderer::PrintAscii(300, 300, "\"Hello,world!\" with shadow!", true);
-	TextRenderer::PrintAscii(300, 316, "\"Hello,world!\" without shadow!", false);
+	TextRenderer::PrintAscii(280, 316, "Clcik to start the game", false);
 
 }
 
