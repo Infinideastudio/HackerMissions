@@ -4,12 +4,13 @@ void setupOpenGL()
 {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
+	glOrtho(0, 800, 500, 0, -1.0, 1.0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glShadeModel(GL_SMOOTH);
-	glClearColor(0.9, 0.9, 0.9, 1.0);
-	glClearDepth(1.0);
-	glEnable(GL_CULL_FACE);
+	glClearColor(0.9f, 0.9f, 0.9f, 1.0f);
+	glClearDepth(1.0f);
+	//glEnable(GL_CULL_FACE);
 	glEnable(GL_COLOR_MATERIAL);
 	glEnable(GL_TEXTURE_2D);
 	glEnable(GL_DEPTH_TEST);
@@ -17,13 +18,15 @@ void setupOpenGL()
 	glEnable(GL_BLEND);
 	glEnable(GL_LINE_SMOOTH);
 	glDepthFunc(GL_LEQUAL);
-	glAlphaFunc(GL_GREATER, 0.0); //<--这家伙在卖萌？
+	glAlphaFunc(GL_GREATER, 0.0f);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	//这顶点数组真TM的坑爹= =
+	//这顶点数组真TM的坑爹= =先暂时不用
+	/*
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	glEnableClientState(GL_COLOR_ARRAY);
+	*/
 
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_FASTEST);
 	glHint(GL_POLYGON_SMOOTH_HINT, GL_FASTEST);

@@ -2,22 +2,18 @@
 
 int main(int argc,char *argv[])
 {
-	auto window = CreateWindow(argc,argv); //初始化窗口
-
+	GLFWwindow* window = CreateWindow(argc,argv); //初始化窗口
 	if (window == nullptr) return -1;
-
-	auto GameScene = std::shared_ptr<Scene>(new Title());
+	setupOpenGL();
+	std::shared_ptr<Scene> GameScene(new Title());
 
 	while(!glfwGetKey(window,GLFW_KEY_ESCAPE) && !glfwWindowShouldClose(window)){
-
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+		GameScene->draw();
 		GameScene->flush(window);
 
-		GameScene->draw();
-
 		glfwSwapBuffers(window);
-
 		glfwPollEvents();
 	}
 
