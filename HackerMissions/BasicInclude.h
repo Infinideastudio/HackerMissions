@@ -16,6 +16,7 @@ using std::string;
 
 #include "Blocks\Blocks.h"
 #include "Textures\Textures.h"
+#include "TextRenderer\TextRenderer.h"
 #include "Scenes\BasicScene.h"
 #include "Scenes\TitleScene.h"
 #include "Scenes\GameScene.h"
