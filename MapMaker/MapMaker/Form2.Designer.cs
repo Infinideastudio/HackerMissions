@@ -36,6 +36,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -96,7 +98,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(439, 233);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 29);
+            this.button2.Size = new System.Drawing.Size(124, 29);
             this.button2.TabIndex = 5;
             this.button2.Text = "导出地图";
             this.button2.UseVisualStyleBackColor = true;
@@ -110,13 +112,32 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "退出";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button2_Click);
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(437, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "关卡号：";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(496, 49);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(67, 21);
+            this.textBox3.TabIndex = 7;
+            this.textBox3.Text = "1";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 274);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -145,5 +166,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
