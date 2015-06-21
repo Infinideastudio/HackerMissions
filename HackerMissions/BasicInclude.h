@@ -1,7 +1,6 @@
 #pragma once
-#define _CRT_SECURE_NO_WARNINGS
+//在这里#include各种文件
 
-#include <stdio.h>
 #include <iostream>
 #include <string>
 #include <memory>
@@ -21,4 +20,4 @@ using std::string;
 #include "Scenes\TitleScene.h"
 #include "Scenes\GameScene.h"
 #include "Window\Window.h"
-//在这里#include各种文件
+

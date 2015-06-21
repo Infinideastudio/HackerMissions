@@ -7,6 +7,6 @@ std::string getBlockName(int blockID){
 		id2name(0, "ground");
 		id2name(1, "wall");
 	default:
-		return "error";
+		return "unknown";
 	}
 }
