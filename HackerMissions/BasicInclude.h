@@ -1,8 +1,11 @@
 #pragma once
+#define _CRT_SECURE_NO_WARNINGS
 
+#include <stdio.h>
 #include <iostream>
 #include <string>
 #include <memory>
+#include <fstream>
 #include <GLEW\glew.h>
 #include <GLFW\glfw3.h>
 #include <stdio.h>

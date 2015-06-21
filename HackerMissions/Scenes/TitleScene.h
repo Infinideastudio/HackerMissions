@@ -2,10 +2,13 @@
 #include "..\BasicInclude.h"
 
 class Title : public Scene{
+private:
+	GLuint titleTexture, bgTexture;  //Œ∆¿Ì
+
 public:
-	unsigned int titleTexture,bgTexture;
 	Title(){ init(); };
 	virtual void init();
 	virtual void draw();
-	virtual void flush(GLFWwindow* win){};
+	virtual void update(GLFWwindow* win){};
+
 };

@@ -9,7 +9,7 @@ public:
 	GameScene(){ init(); };
 	virtual void init();
 	virtual void draw();
-	virtual void flush(GLFWwindow* win){};
+	virtual void update(GLFWwindow* win){};
 
 	void levelup();
 	int levelid;
