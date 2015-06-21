@@ -3,6 +3,7 @@
 
 class Title : public Scene{
 public:
+	unsigned int titleTexture,bgTexture;
 	Title(){ init(); };
 	virtual void init();
 	virtual void draw();

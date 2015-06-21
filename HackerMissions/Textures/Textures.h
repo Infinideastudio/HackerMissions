@@ -1,33 +1,48 @@
 #pragma once
 #include "..\BasicInclude.h"
+#pragma pack(push)
+#pragma pack(1)
 
 namespace Textures{
 	const int BitmapID = 0x4d42;
 
 	struct BitmapFileHeader{
-		short bfType;
-		int bfSize;
-		short bfReserved1, bfReserved2;
-		int bfOffBits;
+		unsigned short bfType;
+		unsigned int bfSize;
+		unsigned short bfReserved1;
+		unsigned short bfReserved2;
+		unsigned int bfOffBits;
 	};
 
 	struct BitmapInfoHeader{
-		int biSize, biWidth, biHeight;
-		short biPlanes, biBitCount;
-		int biCompression, biSizeImage;
-		int biXPelsPerMeter, biYPelsPerMeter;
-		int biClrUsed, biClrImportant;
+		unsigned int biSize;
+		unsigned int biWidth;
+		unsigned int biHeight;
+		unsigned short biPlanes;
+		unsigned short biBitCount;
+		unsigned int biCompression;
+		unsigned int biSizeImage;
+		unsigned int biXPelsPerMeter;
+		unsigned int biYPelsPerMeter;
+		unsigned int biClrUsed;
+		unsigned int biClrImportant;
 	};
 
 	struct BitmapRGB{
-		int sizeX, sizeY;
-		char* buffer;
+		unsigned int sizeX, sizeY;
+		unsigned char* buffer;
 	};
 
 	struct BitmapRGBA{
-		int sizeX, sizeY;
-		char* buffer;
+		unsigned int sizeX, sizeY;
+		unsigned char* buffer;
 	};
 
     BitmapRGB LoadRGBBitmap(string filename);
+	BitmapRGBA LoadRGBABitmap(string filename,string maskfilename);
+	BitmapRGB gltReadBMPBitsRGB(const char* szFileName);
+	unsigned int CreateTextureRGB(BitmapRGB &bmp);
+	unsigned int CreateTextureRGBA(BitmapRGBA &bmp);
 }
+
+#pragma pack(pop)
