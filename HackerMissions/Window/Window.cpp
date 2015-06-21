@@ -1,5 +1,7 @@
 #include "Window.h"
 
+std::shared_ptr<Scene> SceneNow;
+
 void setupOpenGL()
 {
 	glMatrixMode(GL_PROJECTION);

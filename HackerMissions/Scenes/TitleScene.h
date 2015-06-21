@@ -9,6 +9,6 @@ public:
 	Title(){ init(); };
 	virtual void init();
 	virtual void draw();
-	virtual void update(GLFWwindow* win){};
+	virtual void update(GLFWwindow* win);
 
 };

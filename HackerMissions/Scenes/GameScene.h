@@ -10,7 +10,7 @@ public:
 	virtual void init();
 	virtual void draw();
 	virtual void update(GLFWwindow* win){};
-
+	
 	void levelup();
 	int levelid;
 	level levelnow;

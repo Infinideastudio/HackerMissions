@@ -7,3 +7,5 @@ const string game_title = "HackerMissions Alpha 0.1";
 
 GLFWwindow* CreateWindow(int argc, char *argv[]);
 void setupOpenGL();
+
+extern std::shared_ptr<Scene> SceneNow;

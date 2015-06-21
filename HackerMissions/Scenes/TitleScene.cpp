@@ -32,3 +32,10 @@ void Title::draw(){
 		glVertex2i(512,0);
 	glEnd();
 }
+
+void Title::update(GLFWwindow* win){
+	if (glfwGetMouseButton(win, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS){
+		//double x, y; glfwGetCursorPos(win, &x, &y);  <-获得鼠标位置的代码，用来判断是否在按钮上 @qiaozhanrong
+		SceneNow = std::shared_ptr<Scene>(new GameScene);
+	}
+};

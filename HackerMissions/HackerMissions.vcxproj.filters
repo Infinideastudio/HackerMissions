@@ -27,9 +27,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HackerMissions.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Window\Window.cpp">
       <Filter>头文件\Window</Filter>
     </ClCompile>
@@ -44,6 +41,9 @@
     </ClCompile>
     <ClCompile Include="Scenes\GameScene.cpp">
       <Filter>头文件\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="HackerMissions.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
