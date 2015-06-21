@@ -1,5 +1,4 @@
 #include "Textures.h"
-
 namespace Textures
 {
 
@@ -60,31 +59,6 @@ namespace Textures
 		return bitmap;
 	}
 
-	BitmapRGBA LoadMaskBitmap(string filename){
-		unsigned char col[3];
-		unsigned int ind = 0;
-		BitmapRGBA bitmap; //返回位图
-		bitmap.buffer = nullptr; bitmap.sizeX = bitmap.sizeY = 0;
-		std::ifstream bmpfile(filename, std::ios::binary | std::ios::in); //遮罩位图文件（二进制）
-		BitmapFileHeader bfh; //各种关于文件的参数
-		BitmapInfoHeader bih; //各种关于位图的参数
-		//开始读取
-		bmpfile.read((char*)&bfh, sizeof(BitmapFileHeader));
-		bmpfile.read((char*)&bih, sizeof(BitmapInfoHeader));
-		bitmap.sizeX = bih.biWidth;
-		bitmap.sizeY = bih.biHeight;
-		bitmap.buffer = new unsigned char[bitmap.sizeX * bitmap.sizeY * 4];
-		//填充颜色为白色（为什么是-1自己想= =）
-		memset(bitmap.buffer, -1, bitmap.sizeX * bitmap.sizeY * 4);
-		for (unsigned int i = 0; i < bitmap.sizeX * bitmap.sizeY; i++){
-			//将遮罩图的红色通道反相作为Alpha通道
-			bmpfile.read((char*)col, 3); ind += 3;
-			bitmap.buffer[ind++] = 255 - col[2]; //A
-		}
-		bmpfile.close();
-		return bitmap;
-	}
-
 	unsigned int CreateTextureRGB(BitmapRGB &bmp){
 		//if (bmp.buffer == nullptr) return 0;
 		unsigned int res;
@@ -93,7 +67,7 @@ namespace Textures
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bmp.sizeX, bmp.sizeY, 0, GL_RGB, GL_UNSIGNED_BYTE, bmp.buffer);
-		delete[] bmp.buffer;
+		delete []bmp.buffer;
 		return res;
 	}
 
@@ -105,7 +79,7 @@ namespace Textures
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bmp.sizeX, bmp.sizeY, 0, GL_RGBA, GL_UNSIGNED_BYTE, bmp.buffer);
-		delete[] bmp.buffer;
+		delete []bmp.buffer;
 		return res;
 	}
 

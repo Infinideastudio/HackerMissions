@@ -40,7 +40,7 @@ namespace Textures{
 
     BitmapRGB LoadRGBBitmap(string filename);
 	BitmapRGBA LoadRGBABitmap(string filename,string maskfilename);
-	BitmapRGBA LoadMaskBitmap(string filename);
+	BitmapRGB gltReadBMPBitsRGB(const char* szFileName);
 	unsigned int CreateTextureRGB(BitmapRGB &bmp);
 	unsigned int CreateTextureRGBA(BitmapRGBA &bmp);
 }
