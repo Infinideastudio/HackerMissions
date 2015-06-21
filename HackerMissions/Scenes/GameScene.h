@@ -1,10 +1,17 @@
 #pragma once
 #include "..\BasicInclude.h"
+#include "Level.h"
 
-class Title : public Scene{
+class GameScene : public Scene{
+private:
+
 public:
-	Title(){ init(); };
+	GameScene(){ init(); };
 	virtual void init();
 	virtual void draw();
 	virtual void flush(GLFWwindow* win){};
+
+	void levelup();
+	int levelid;
+	level levelnow;
 };
