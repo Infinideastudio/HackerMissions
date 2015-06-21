@@ -1,7 +1,7 @@
 #include "Textures.h"
+#include "..\BasicInclude.h"
 namespace Textures
 {
-
 	BitmapRGB LoadRGBBitmap(string filename){
 		unsigned char col[3];
 		unsigned int ind = 0;
@@ -67,7 +67,7 @@ namespace Textures
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, bmp.sizeX, bmp.sizeY, 0, GL_RGB, GL_UNSIGNED_BYTE, bmp.buffer);
-		delete []bmp.buffer;
+		delete[] bmp.buffer;
 		return res;
 	}
 
@@ -79,8 +79,19 @@ namespace Textures
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, bmp.sizeX, bmp.sizeY, 0, GL_RGBA, GL_UNSIGNED_BYTE, bmp.buffer);
-		delete []bmp.buffer;
+		delete[] bmp.buffer;
 		return res;
 	}
 
+	GLuint GenTexture(string filename){
+		return Textures::CreateTextureRGB(Textures::LoadRGBBitmap(filename));
+	}
+	GLuint GenTexture(string filename, string maskfilename){
+		return Textures::CreateTextureRGBA(Textures::LoadRGBABitmap(filename, maskfilename));
+	}
+	GLuint LoadBlockTexture(int n){
+		std::stringstream ss;
+		ss << "res\\Textures\\Blocks\\" << getBlockName(n) << ".bmp";
+		return GenTexture(ss.str());
+	}
 }
