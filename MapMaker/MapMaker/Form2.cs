@@ -23,7 +23,7 @@ namespace MapMaker
         private void button2_Click(object sender, EventArgs e)
         {
             int lev = int.Parse(textBox3.Text);
-            FileStream fs = new FileStream("map" + lev + ".dat", FileMode.Create);
+            FileStream fs = new FileStream("level" + lev + ".dat", FileMode.Create);
             BinaryWriter bw = new BinaryWriter(fs);
             bw.Write(lev);
             bw.Write(xall);
@@ -36,10 +36,7 @@ namespace MapMaker
                int c = i % yall;
                temparray[i] = MapData[r, c];
               }
-            for (int i = 0; i != yall; i++)
-            {
-                bw.Write(temparray, 0, temparray.Length);
-            }
+            bw.Write(temparray, 0, temparray.Length);
             bw.Flush();
             bw.Close();
             fs.Close();

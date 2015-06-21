@@ -43,6 +43,10 @@ namespace Textures{
 	BitmapRGB gltReadBMPBitsRGB(const char* szFileName);
 	unsigned int CreateTextureRGB(BitmapRGB &bmp);
 	unsigned int CreateTextureRGBA(BitmapRGBA &bmp);
+	GLuint GenTexture(string filename);
+	GLuint GenTexture(string filename, string maskfilename);
+
+	GLuint LoadBlockTexture(int n);
 }
 
 #pragma pack(pop)

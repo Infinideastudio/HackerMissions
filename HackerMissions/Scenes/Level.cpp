@@ -6,10 +6,10 @@ bool level::readFromFile(int levelload){
 		delete[] mapData;
 	}
 	std::stringstream ss;
-	ss << "levels\\level" << LevelID << ".dat";
+	ss << "levels\\level" << levelload << ".dat";
 	FILE* levelfile;
-	fopen_s(&levelfile,ss.str().c_str(), "r"); //以只读方式打开关卡文件
-	if (levelfile == NULL) return false;  //验证打开文件是否成功
+	errno_t err = fopen_s(&levelfile,ss.str().c_str(), "r"); //以只读方式打开关卡文件
+	if (err != 0 || levelfile == nullptr) return false;  //验证打开文件是否成功
 	int levelID = 0;
 	fread(&levelID, sizeof(int), 1, levelfile);
 	if (levelID != levelload) return false; //验证关卡号
@@ -17,7 +17,8 @@ bool level::readFromFile(int levelload){
 	fread(&mapy, sizeof(int), 1, levelfile); //读入关卡大小
 	mapData = new unsigned char[mapx*mapy]; //分配地图数据
 	isMapLoaded = true;
-	fread(&mapData, sizeof(mapData), 1, levelfile); //读入地图数据
+	memset(mapData, 0, sizeof(mapData));
+	fread(mapData, sizeof(mapData), 1, levelfile); //读入地图数据
 	fclose(levelfile);
 	LevelID = levelload;
 	return true;

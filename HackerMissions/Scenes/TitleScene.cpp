@@ -1,8 +1,8 @@
 #include "TitleScene.h"
 
 void Title::init(){
-	titleTexture = Textures::CreateTextureRGBA(Textures::LoadRGBABitmap("res\\Textures\\GUI\\title.bmp","res\\Textures\\GUI\\titlemask.bmp"));
-	bgTexture = Textures::CreateTextureRGB(Textures::LoadRGBBitmap("res\\Textures\\GUI\\MainMenu.bmp"));
+	titleTexture = Textures::GenTexture("res\\Textures\\GUI\\title.bmp","res\\Textures\\GUI\\titlemask.bmp");
+	bgTexture = Textures::GenTexture("res\\Textures\\GUI\\MainMenu.bmp");
 }
 
 void Title::draw(){

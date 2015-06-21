@@ -81,9 +81,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Blocks\Block.cpp" />
     <ClCompile Include="Scenes\GameScene.cpp" />
     <ClCompile Include="Scenes\Level.cpp" />
     <ClCompile Include="Textures\Textures.cpp" />
+    <ClInclude Include="Blocks\Blocks.h" />
     <ClInclude Include="Scenes\GameScene.h" />
     <ClInclude Include="Scenes\Level.h" />
     <ClInclude Include="Textures\Textures.h" />
