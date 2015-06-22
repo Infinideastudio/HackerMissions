@@ -1,6 +1,5 @@
 #pragma once
-
-#include <stdio.h>
+//在这里#include各种文件
 #include <iostream>
 #include <string>
 #include <memory>
@@ -20,4 +19,4 @@ using std::string;
 #include "Scenes\TitleScene.h"
 #include "Scenes\GameScene.h"
 #include "Window\Window.h"
-//在这里#include各种文件
+

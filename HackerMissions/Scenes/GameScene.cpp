@@ -20,7 +20,7 @@ void GameScene::drawBlock(int blockid, int x, int y){  //ÁÙÊ±µÄ£¬ÔÚrenderer»¹Ã»³
 }
 
 void GameScene::init(){
-	for (int i = 0; i != TexturesNum; i++){
+	for (int i = 0; i < TexturesNum; i++){
 		textures[i] = Textures::LoadBlockTexture(i);
 	}
 	levelid = 0;
@@ -28,8 +28,8 @@ void GameScene::init(){
 }
 
 void GameScene::draw(){
-	for (int x = 0; x != levelnow.mapx;x++){
-		for (int y = 0; y != levelnow.mapy; y++){
+	for (int x = 0; x < levelnow.mapx;x++){
+		for (int y = 0; y < levelnow.mapy; y++){
 			drawBlock(levelnow.mapData[x*levelnow.mapy + y], x, y);
 		}
 	}
