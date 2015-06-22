@@ -44,6 +44,9 @@
     <Filter Include="资源文件\Textures\Blocks">
       <UniqueIdentifier>{6fdc9c76-e530-4e7a-a3df-9fce8bbc08fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源代码\Renderer\TextRenderer\MessageBox">
+      <UniqueIdentifier>{72c024cd-2d1c-4815-ac4d-facf00b89c31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -69,6 +72,9 @@
     </ClCompile>
     <ClCompile Include="TextRenderer\TextRenderer.cpp">
       <Filter>源代码\Renderer\TextRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRenderer\MessageBox.cpp">
+      <Filter>源代码\Renderer\TextRenderer\MessageBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="TextRenderer\TextRenderer.h">
       <Filter>源代码\Renderer\TextRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderer\MessageBox.h">
+      <Filter>源代码\Renderer\TextRenderer\MessageBox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

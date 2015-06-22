@@ -13,7 +13,6 @@ namespace MapMaker
         static int yall = 0;
         static float xunit = 0;
         static float yunit = 0;
-        static int blockall = 3;
         static Image[] textures = new Image[2];
         public Form2()
         {

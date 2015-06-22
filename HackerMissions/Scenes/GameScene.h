@@ -8,6 +8,7 @@ private:
 	GLuint textures[TexturesNum];
 	int blockX;
 	int blockY;
+	int fixedX = 0, fixedY = 0;
 public:
 	GameScene(){ init(); };
 	virtual void init();
