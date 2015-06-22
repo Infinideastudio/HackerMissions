@@ -6,7 +6,6 @@
 #include <fstream>
 #include <GLEW\glew.h>
 #include <GLFW\glfw3.h>
-#include <stdio.h>
 #include <sstream>
 using std::cout;
 using std::endl;
