@@ -2,7 +2,10 @@
 #include "..\BasicInclude.h"
 
 bool level::readFromFile(int levelload){
-    if (isMapLoaded)delete[] mapData; //已经加载过地图了，删除当前地图
+	if (isMapLoaded){
+		delete[] mapData; //已经加载过地图了，删除当前地图
+		isMapLoaded = false;
+	}
 	std::stringstream ss;
 	ss << "res\\levels\\level" << levelload << ".dat"; //关卡文件名
 	std::ifstream levelfile(ss.str(),std::ios::binary|std::ios::in); //打开文件

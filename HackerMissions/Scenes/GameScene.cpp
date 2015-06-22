@@ -19,18 +19,18 @@ void GameScene::drawBlock(int blockid, int x, int y){  //ÁÙÊ±µÄ£¬ÔÚrenderer»¹Ã»³
 	ypos *= blocksize;
 	xpos += fixedX;
 	ypos += fixedY;
-	//¿ªÊ¼»­£¨ÄÇĞ©(int)ÊÇÎªÁË½â¾öVS¸ø³öµÄ¿ÓËÀÈËµÄ¾¯¸æµÄ¡£¡£¡££©
+	//¿ªÊ¼»­£¨ÄÇĞ©(int)ÊÇÎªÁË½â¾öVS¸ø³öµÄ¿ÓËÀÈËµÄ¾¯¸æµÄ¡£¡£¡££©  <-²»ÄÜ°Ñ2i»»³É2dÂğ¡­¡­
 	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	glBindTexture(GL_TEXTURE_2D, textures[blockid]);
 	glBegin(GL_QUADS); {
 		glTexCoord2d(tx + size, ty + size);
-		glVertex2i((int)(xpos + blocksize), (int)ypos);
+		glVertex2d(xpos + blocksize, ypos);
 		glTexCoord2d(tx, ty + size);;
-		glVertex2i((int)xpos, (int)ypos);
+		glVertex2d(xpos, ypos);
 		glTexCoord2d(tx, ty);
-		glVertex2i((int)xpos, (int)(ypos + blocksize));
+		glVertex2d(xpos, ypos + blocksize);
 		glTexCoord2d(tx + size, ty);
-		glVertex2i((int)(xpos + blocksize), (int)(ypos + blocksize));
+		glVertex2d(xpos + blocksize, ypos + blocksize);
 	}glEnd();
 }
 
@@ -47,10 +47,15 @@ void GameScene::init(){
 
 void GameScene::draw(){
 	std::stringstream fpstext;
-	for (int x = 0; x < levelnow.mapx;x++){
-		for (int y = 0; y < levelnow.mapy; y++){
-			drawBlock(levelnow.mapData[x*levelnow.mapy + y], x, y);
+	if (levelid != -1){
+		for (int x = 0; x < levelnow.mapx; x++){
+			for (int y = 0; y < levelnow.mapy; y++){
+				drawBlock(levelnow.mapData[x*levelnow.mapy + y], x, y);
+			}
 		}
+	}
+	else{
+		MessageBox::Show("It seems that you are passing all the levels!");
 	}
 	MessageBox::draw();
 	fpstext << "FPS:" << fps;
@@ -71,11 +76,12 @@ void GameScene::update(GLFWwindow* win){
 	fixedX = (int)(800 - blocksize*levelnow.mapx) / 2;
 	fixedY = (int)(500 - blocksize*levelnow.mapy) / 2;
 	//Í¨¹ØºóÃÅ
-	if (glfwGetKey(win, 'I') && glfwGetKey(win, 'N') && glfwGetKey(win, 'F'))levelup();
+	if (glfwGetKey(win, 'I') && glfwGetKey(win, 'N') && glfwGetKey(win, 'F')&&levelid!=-1)
+		levelup();
 }
 
 void GameScene::levelup(){
-	levelnow.readFromFile(++levelid);
+	if (!levelnow.readFromFile(++levelid)) levelid = -1;  //µØÍ¼¼ÓÔØÊ§°Ü
 	double blockX = 800 / levelnow.mapx;
 	double blockY = 500 / levelnow.mapy;
 	blocksize = blockX < blockY ? blockX : blockY;

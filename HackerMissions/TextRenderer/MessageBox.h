@@ -5,10 +5,10 @@
 class MessageBox{
 private:
 	static bool isShow;
-	static int showTimeLeft;
+	static int showTime;
 	static std::string showText;
 	static int beginTime;
 public:
-	static void Show(std::string str, int time);
+	static void Show(std::string str, int time = 3);
 	static void draw();
 };
