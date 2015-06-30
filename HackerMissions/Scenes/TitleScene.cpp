@@ -33,7 +33,7 @@ void Title::draw(){
 	}glEnd();
 
 	TextRenderer::setFontColor(1.0,1.0,1.0,1.0);
-	TextRenderer::PrintAscii(280, 316, "Click to start the game", false);
+	TextRenderer::PrintAscii(200, 316, ">> Click anywhere to start the game! <<", false);
 
 }
 

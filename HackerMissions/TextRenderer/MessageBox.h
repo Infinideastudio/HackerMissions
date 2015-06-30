@@ -11,4 +11,5 @@ private:
 public:
 	static void Show(std::string str, int time = 3);
 	static void draw();
+	static bool Shown();
 };

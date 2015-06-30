@@ -82,12 +82,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Blocks\Block.cpp" />
+    <ClCompile Include="Player\Player.cpp" />
     <ClCompile Include="Scenes\GameScene.cpp" />
     <ClCompile Include="Scenes\Level.cpp" />
     <ClCompile Include="TextRenderer\MessageBox.cpp" />
     <ClCompile Include="TextRenderer\TextRenderer.cpp" />
     <ClCompile Include="Textures\Textures.cpp" />
     <ClInclude Include="Blocks\Blocks.h" />
+    <ClInclude Include="Player\Player.h" />
     <ClInclude Include="Scenes\GameScene.h" />
     <ClInclude Include="Scenes\Level.h" />
     <ClInclude Include="TextRenderer\MessageBox.h" />

@@ -16,7 +16,11 @@ void MessageBox::Show(std::string str, int time){
 void MessageBox::draw(){
 	if (!isShow) return;
 	if (glfwGetTime() - beginTime > showTime)isShow = false;
-	TextRenderer::setFontColor(0, 0, 0, 1);
-	TextRenderer::PrintAscii(280 - showText.size() / 5 * 10, 416, showText, true);
+	TextRenderer::setFontColor(1, 1, 1, 1);
+	TextRenderer::PrintAscii(400 - showText.size() * 5, 416, showText, true);
 	glColor4f(1, 1, 1, 1);
+}
+
+bool MessageBox::Shown(){
+	return isShow;
 }

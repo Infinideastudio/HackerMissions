@@ -9,6 +9,7 @@ private:
 	double blocksize;
 	int fixedX = 0, fixedY = 0;
 	int fps, fpscount, curtimer;
+	string sentences[256];
 public:
 	GameScene(){ init(); };
 	virtual void init();
@@ -20,4 +21,5 @@ public:
 	void levelup();
 	int levelid;
 	level levelnow;
+	Player player;
 };

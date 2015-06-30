@@ -19,34 +19,48 @@ void GameScene::drawBlock(int blockid, int x, int y){  //ÁÙÊ±µÄ£¬ÔÚrenderer»¹Ã»³
 	ypos *= blocksize;
 	xpos += fixedX;
 	ypos += fixedY;
-	//¿ªÊ¼»­£¨ÄÇĞ©(int)ÊÇÎªÁË½â¾öVS¸ø³öµÄ¿ÓËÀÈËµÄ¾¯¸æµÄ¡£¡£¡££©  <-²»ÄÜ°Ñ2i»»³É2dÂğ¡­¡­
+	//¿ªÊ¼»­£¨ÄÇĞ©(int)ÊÇÎªÁË½â¾öVS¸ø³öµÄ¿ÓËÀÈËµÄ¾¯¸æµÄ¡£¡£¡££©
+	//Null: ²»ÄÜ°Ñ2i»»³É2dÂğ¡­¡­
+	//qiaozhanrong: »»ÁËÖ®ºó¾«¶È²»ĞĞ£¬·Å´ó±¶ÊıºÜ´óÊ±·Å´óËõĞ¡¶¼Ò»¶¶Ò»¶¶µÄ¡­¡­£¨¸¡µãÊı¿ÓËÀÈËµÄ¾«¶ÈÎÊÌâ£©
 	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	glBindTexture(GL_TEXTURE_2D, textures[blockid]);
 	glBegin(GL_QUADS); {
 		glTexCoord2d(tx + size, ty + size);
-		glVertex2d(xpos + blocksize, ypos);
+		glVertex2i((int)(xpos + blocksize), (int)ypos);
 		glTexCoord2d(tx, ty + size);;
-		glVertex2d(xpos, ypos);
+		glVertex2i((int)xpos, (int)ypos);
 		glTexCoord2d(tx, ty);
-		glVertex2d(xpos, ypos + blocksize);
+		glVertex2i((int)xpos, (int)(ypos + blocksize));
 		glTexCoord2d(tx + size, ty);
-		glVertex2d(xpos + blocksize, ypos + blocksize);
+		glVertex2i((int)(xpos + blocksize), (int)(ypos + blocksize));
 	}glEnd();
 }
 
 void GameScene::init(){
+	//¾çÇé£¨ÔİÊ±ÏÈĞ´Õâ¶ù£¬ÒÔºóÎÄ¼şÊäÈë£©
+	sentences[0] = "Hi, Hacker NEWBIE.";
+	sentences[1] = "Welcome to this game.";
+	sentences[2] = "Your mission is to hack into Microsoft...";
+	sentences[3] = "...And get the source code of Minecraft.";
+	sentences[4] = "I'm your neighbour, Mr. Wang.";
+	sentences[5] = "You may learn lots of useful information from me.";
+	sentences[6] = "The servers of Microsoft has a lot of bugs...";
+	sentences[7] = "Try your best to find them!";
+	sentences[8] = "</text>"; //½áÊø±ê¼Ç
+	//³õÊ¼»¯
 	for (int i = 0; i < TexturesNum; i++){
 		textures[i] = Textures::LoadBlockTexture(i);
 	}
 	levelid = 0;
 	levelup();
-	MessageBox::Show("Welcome! It's just a test of messagebox.",3);
 	curtimer = (int)glfwGetTime();
 	fpscount = fps = 0;
+	player.xpos = player.ypos = 0;
 }
 
 void GameScene::draw(){
 	std::stringstream fpstext;
+	//glTranslated(-player.xpos,-player.ypos,0.0);
 	if (levelid != -1){
 		for (int x = 0; x < levelnow.mapx; x++){
 			for (int y = 0; y < levelnow.mapy; y++){
@@ -55,7 +69,7 @@ void GameScene::draw(){
 		}
 	}
 	else{
-		MessageBox::Show("It seems that you are passing all the levels!");
+		MessageBox::Show("It seems that you have passed all the levels!");
 	}
 	MessageBox::draw();
 	fpstext << "FPS:" << fps;
@@ -65,19 +79,30 @@ void GameScene::draw(){
 }
 
 void GameScene::update(GLFWwindow* win){
+	static int sentenceNum; //¾çÇéÓï¾ä±àºÅ
+	//Íæ¼ÒÒÆ¶¯
+	if (glfwGetKey(win, 'A'))player.xpos -= 0.05;
+	if (glfwGetKey(win, 'D'))player.xpos += 0.05;
+	if (glfwGetKey(win, 'W'))player.ypos -= 0.05;
+	if (glfwGetKey(win, 'S'))player.ypos += 0.05;
 	//¼ÆËãFPS
 	if (glfwGetTime()-curtimer > 1){
 		curtimer = (int)glfwGetTime();
 		fps = fpscount; fpscount = 0;
 	}
 	//Ëõ·ÅµØÍ¼
-	if (glfwGetKey(win, GLFW_KEY_UP))blocksize *= 1.005;
-	if (glfwGetKey(win, GLFW_KEY_DOWN))blocksize /= 1.005;
-	fixedX = (int)(800 - blocksize*levelnow.mapx) / 2;
-	fixedY = (int)(500 - blocksize*levelnow.mapy) / 2;
+	if (glfwGetKey(win, 'Z'))blocksize *= 1.005;
+	if (glfwGetKey(win, 'X'))blocksize /= 1.005;
+	fixedX = (int)(800 - blocksize*levelnow.mapx) / 2 - blocksize*player.xpos;
+	fixedY = (int)(500 - blocksize*levelnow.mapy) / 2 - blocksize*player.ypos;
 	//Í¨¹ØºóÃÅ
-	if (glfwGetKey(win, 'I') && glfwGetKey(win, 'N') && glfwGetKey(win, 'F')&&levelid!=-1)
-		levelup();
+	if (glfwGetKey(win, 'I') && glfwGetKey(win, 'N') && glfwGetKey(win, 'F')&&levelid!=-1)levelup();
+	//ÏÔÊ¾¾çÇé
+	if (!MessageBox::Shown() && sentences[sentenceNum] != "</text>"){
+		MessageBox::Show(sentences[sentenceNum], sentences[sentenceNum].size()>>3);
+		//ÓÒÒÆ3Î»ÊÇ×°±ÆµÄ£¬ÆäÊµ¾ÍÊÇ³ıÒÔ8£¨¸ù¾İ³¤¶ÈËã³öÍ£ÁôÊ±¼äÕâÑù¸üºÏÀíÒ»Ğ©£©
+		sentenceNum++;
+	}
 }
 
 void GameScene::levelup(){

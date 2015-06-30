@@ -47,6 +47,9 @@
     <Filter Include="源代码\Renderer\TextRenderer\MessageBox">
       <UniqueIdentifier>{72c024cd-2d1c-4815-ac4d-facf00b89c31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源代码\Player">
+      <UniqueIdentifier>{240e4488-6565-498d-beb0-e6ea20d111c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -75,6 +78,9 @@
     </ClCompile>
     <ClCompile Include="TextRenderer\MessageBox.cpp">
       <Filter>源代码\Renderer\TextRenderer\MessageBox</Filter>
+    </ClCompile>
+    <ClCompile Include="Player\Player.cpp">
+      <Filter>源代码\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +113,9 @@
     </ClInclude>
     <ClInclude Include="TextRenderer\MessageBox.h">
       <Filter>源代码\Renderer\TextRenderer\MessageBox</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\Player.h">
+      <Filter>源代码\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
