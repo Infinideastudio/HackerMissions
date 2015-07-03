@@ -9,8 +9,8 @@ void MessageBox::Show(std::string str, int time){
 	//结合fps使用以得到固定时间的保持
 	isShow = true;
 	showText = str;
-	showTime = time;
-	beginTime = (int)glfwGetTime();
+	showTime = time == -1 ? str.size() >> 3:time;  //右移3位是装逼的，其实就是除以8（根据长度算出停留时间这样更合理一些）
+	beginTime = static_cast<int>(glfwGetTime());
 }
 
 void MessageBox::draw(){

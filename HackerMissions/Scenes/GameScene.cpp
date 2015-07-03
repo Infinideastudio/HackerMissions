@@ -37,25 +37,14 @@ void GameScene::drawBlock(int blockid, int x, int y){  //ÁÙÊ±µÄ£¬ÔÚrenderer»¹Ã»³
 }
 
 void GameScene::init(){
-	//¾çÇé£¨ÔİÊ±ÏÈĞ´Õâ¶ù£¬ÒÔºóÎÄ¼şÊäÈë£©
-	sentences[0] = "Hi, Hacker NEWBIE.";
-	sentences[1] = "Welcome to this game.";
-	sentences[2] = "Your mission is to hack into Microsoft...";
-	sentences[3] = "...And get the source code of Minecraft.";
-	sentences[4] = "I'm your neighbour, Mr. Wang.";
-	sentences[5] = "You may learn lots of useful information from me.";
-	sentences[6] = "The servers of Microsoft has a lot of bugs...";
-	sentences[7] = "Try your best to find them!";
-	sentences[8] = "</text>"; //½áÊø±ê¼Ç
 	//³õÊ¼»¯
 	for (int i = 0; i < TexturesNum; i++){
 		textures[i] = Textures::LoadBlockTexture(i);
 	}
 	levelid = 0;
 	levelup();
-	curtimer = (int)glfwGetTime();
-	fpscount = fps = 0;
-	player.xpos = player.ypos = 0;
+	currentTimer = static_cast<int>(glfwGetTime());
+	fpsCount = fps = 0;
 }
 
 void GameScene::draw(){
@@ -75,7 +64,7 @@ void GameScene::draw(){
 	fpstext << "FPS:" << fps;
 	TextRenderer::setFontColor(1.0f, 1.0f, 1.0f, 0.9f);
 	TextRenderer::PrintAscii(0, 0, fpstext.str(), true);
-	fpscount++;
+	fpsCount++;
 }
 
 void GameScene::update(GLFWwindow* win){
@@ -86,27 +75,24 @@ void GameScene::update(GLFWwindow* win){
 	if (glfwGetKey(win, 'W'))player.ypos -= 0.05;
 	if (glfwGetKey(win, 'S'))player.ypos += 0.05;
 	//¼ÆËãFPS
-	if (glfwGetTime()-curtimer > 1){
-		curtimer = (int)glfwGetTime();
-		fps = fpscount; fpscount = 0;
+	if (glfwGetTime()-currentTimer > 1){
+		currentTimer = (int)glfwGetTime();
+		fps = fpsCount; fpsCount = 0;
 	}
 	//Ëõ·ÅµØÍ¼
 	if (glfwGetKey(win, 'Z'))blocksize *= 1.005;
 	if (glfwGetKey(win, 'X'))blocksize /= 1.005;
-	fixedX = (int)(800 - blocksize*levelnow.mapx) / 2 - blocksize*player.xpos;
-	fixedY = (int)(500 - blocksize*levelnow.mapy) / 2 - blocksize*player.ypos;
+	fixedX = (int)((800.0 - blocksize*levelnow.mapx) / 2 - blocksize*player.xpos);
+	fixedY = (int)((500.0 - blocksize*levelnow.mapy) / 2 - blocksize*player.ypos);
 	//Í¨¹ØºóÃÅ
 	if (glfwGetKey(win, 'I') && glfwGetKey(win, 'N') && glfwGetKey(win, 'F')&&levelid!=-1)levelup();
 	//ÏÔÊ¾¾çÇé
-	if (!MessageBox::Shown() && sentences[sentenceNum] != "</text>"){
-		MessageBox::Show(sentences[sentenceNum], sentences[sentenceNum].size()>>3);
-		//ÓÒÒÆ3Î»ÊÇ×°±ÆµÄ£¬ÆäÊµ¾ÍÊÇ³ıÒÔ8£¨¸ù¾İ³¤¶ÈËã³öÍ£ÁôÊ±¼äÕâÑù¸üºÏÀíÒ»Ğ©£©
-		sentenceNum++;
-	}
+	if (!MessageBox::Shown()) MessageBox::Show(storyLine.get());
 }
 
 void GameScene::levelup(){
 	if (!levelnow.readFromFile(++levelid)) levelid = -1;  //µØÍ¼¼ÓÔØÊ§°Ü
+	if (levelid == -1 || !storyLine.readFromFile(levelid)) levelid = -1;
 	double blockX = 800 / levelnow.mapx;
 	double blockY = 500 / levelnow.mapy;
 	blocksize = blockX < blockY ? blockX : blockY;

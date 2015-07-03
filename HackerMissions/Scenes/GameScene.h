@@ -1,6 +1,7 @@
 #pragma once
 #include "..\BasicInclude.h"
 #include "Level.h"
+#include "Story.h"
 
 class GameScene : public Scene{
 private:
@@ -8,8 +9,10 @@ private:
 	GLuint textures[TexturesNum];
 	double blocksize;
 	int fixedX = 0, fixedY = 0;
-	int fps, fpscount, curtimer;
-	string sentences[256];
+	int fps, fpsCount, currentTimer;
+	
+	story storyLine;
+
 public:
 	GameScene(){ init(); };
 	virtual void init();

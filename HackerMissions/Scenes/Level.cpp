@@ -9,6 +9,7 @@ bool level::readFromFile(int levelload){
 	std::stringstream ss;
 	ss << "res\\levels\\level" << levelload << ".dat"; //关卡文件名
 	std::ifstream levelfile(ss.str(),std::ios::binary|std::ios::in); //打开文件
+	if (!levelfile.is_open()) return false;
 	int levelID = 0;
 	levelfile.read((char*)&levelID,sizeof(int)); //读入关卡号
 	if (levelID != levelload) return false; //验证关卡号

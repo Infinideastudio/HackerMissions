@@ -9,7 +9,7 @@ private:
 	static std::string showText;
 	static int beginTime;
 public:
-	static void Show(std::string str, int time = 3);
+	static void Show(std::string str, int time = -1);
 	static void draw();
 	static bool Shown();
 };

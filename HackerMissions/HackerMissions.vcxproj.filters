@@ -50,6 +50,9 @@
     <Filter Include="源代码\Player">
       <UniqueIdentifier>{240e4488-6565-498d-beb0-e6ea20d111c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源代码\Scenes\StoryLine">
+      <UniqueIdentifier>{2a01911f-64f1-4d62-b9e7-b1dcac420486}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -81,6 +84,9 @@
     </ClCompile>
     <ClCompile Include="Player\Player.cpp">
       <Filter>源代码\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\Story.cpp">
+      <Filter>源代码\Scenes\StoryLine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +122,12 @@
     </ClInclude>
     <ClInclude Include="Player\Player.h">
       <Filter>源代码\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="StdInclude.h">
+      <Filter>源代码</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\Story.h">
+      <Filter>源代码\Scenes\StoryLine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

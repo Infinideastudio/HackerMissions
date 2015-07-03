@@ -1,16 +1,7 @@
 #pragma once
-//在这里#include各种文件
-#include <iostream>
-#include <string>
-#include <memory>
-#include <fstream>
-#include <GLEW\glew.h>
-#include <GLFW\glfw3.h>
-#include <sstream>
-using std::cout;
-using std::endl;
-using std::string;
+#include "StdInclude.h"
 
+//在这里#include各种文件
 #include "Blocks\Blocks.h"
 #include "Textures\Textures.h"
 #include "TextRenderer\TextRenderer.h"
