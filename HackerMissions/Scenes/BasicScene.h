@@ -7,4 +7,5 @@ public:
 	virtual void init() = 0;
 	virtual void draw() = 0;
 	virtual void update(GLFWwindow* win) = 0;
+	virtual void Scroll(double offsety){};
 };

@@ -25,4 +25,6 @@ public:
 	int levelid;
 	level levelnow;
 	Player player;
+
+	void Scroll(double offsety);
 };

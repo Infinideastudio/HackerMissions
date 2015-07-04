@@ -9,3 +9,4 @@ GLFWwindow* CreateWindow(int argc, char *argv[]);
 void setupOpenGL();
 
 extern std::shared_ptr<Scene> SceneNow;
+extern GLFWwindow* win;

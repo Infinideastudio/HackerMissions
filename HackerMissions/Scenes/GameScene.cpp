@@ -1,5 +1,9 @@
 #include "GameScene.h"
 
+void scrollCall(GLFWwindow* win, double offsetx, double offsety){
+	SceneNow->Scroll(offsety);
+}
+
 void GameScene::drawBlock(int blockid, int x, int y){  //临时的，在renderer还没出现的时候的过渡
 	double tx, ty, size = 1.0, xpos = x, ypos = y;
 	int tn = 0;
@@ -45,6 +49,7 @@ void GameScene::init(){
 	levelup();
 	currentTimer = static_cast<int>(glfwGetTime());
 	fpsCount = fps = 0;
+	glfwSetScrollCallback(win, &scrollCall);
 }
 
 void GameScene::draw(){
@@ -67,6 +72,10 @@ void GameScene::draw(){
 	fpsCount++;
 }
 
+void GameScene::Scroll(double offsety){
+	if (offsety==1) blocksize *= 1.1;
+	else blocksize /= 1.1;
+}
 void GameScene::update(GLFWwindow* win){
 	static int sentenceNum; //剧情语句编号
 	//玩家移动

@@ -1,6 +1,7 @@
 #include "Window.h"
 
 std::shared_ptr<Scene> SceneNow;
+GLFWwindow* win;
 
 void setupOpenGL()
 {
@@ -10,7 +11,7 @@ void setupOpenGL()
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glShadeModel(GL_SMOOTH);
-	glClearColor(0.7f, 0.9f, 1.0f, 1.0f);
+	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 	glClearDepth(1.0f);
 	//glEnable(GL_CULL_FACE);
 	glEnable(GL_COLOR_MATERIAL);
@@ -53,5 +54,6 @@ GLFWwindow* CreateWindow(int argc, char *argv[]){
 		return nullptr;
 	}
 	setupOpenGL();
+	win = window;
 	return window;
 }
