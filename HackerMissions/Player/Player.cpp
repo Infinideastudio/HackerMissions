@@ -7,8 +7,5 @@ void Player::update(GLFWwindow* win){
 	xpos += xspeed;
 	ypos += yspeed;
 	xspeed *= 0.96;
-	if (ypos > 0)yspeed -= 0.001; else yspeed = 0, ypos = 0;
+	if (ypos > 0) yspeed -= 0.001; else yspeed = 0, ypos = 0;
 }
-
-double Player::getxpos(){ return xpos; };
-double Player::getypos(){ return ypos; };
