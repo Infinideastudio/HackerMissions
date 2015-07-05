@@ -19,13 +19,15 @@ void AABB::move(double xa, double ya, double za){
 }
 
 bool AABB::inXclip(AABB target){
-	if (xmin>target.xmin && xmin<target.xmax || xmax>target.xmin && xmax<target.xmax)return true;
-	if (target.xmin>xmin && target.xmin<xmax || target.xmax>xmin && target.xmax<xmax)return true;
+	if (xmin>target.xmin && xmin<target.xmax || xmax>target.xmin && xmax<target.xmax) return true;
+	if (target.xmin>xmin && target.xmin<xmax || target.xmax>xmin && target.xmax<xmax) return true;
+	return false;
 }
 
 bool AABB::inYclip(AABB target){
-	if (ymin>target.ymin && ymin<target.ymax || ymax>target.ymin && ymax<target.ymax)return true;
-	if (target.ymin>ymin && target.ymin<ymax || target.ymax>ymin && target.ymax<ymax)return true;
+	if (ymin>target.ymin && ymin<target.ymax || ymax>target.ymin && ymax<target.ymax) return true;
+	if (target.ymin>ymin && target.ymin<ymax || target.ymax>ymin && target.ymax<ymax )return true;
+	return false;
 }
 
 bool AABB::hitWith(AABB target){
