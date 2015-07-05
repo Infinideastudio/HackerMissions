@@ -1,10 +1,14 @@
 #pragma once
-#include "BasicScene.h"
+#include "..\BasicInclude.h"
 
 class Title : public Scene{
+private:
+	GLuint titleTexture, bgTexture;  //Œ∆¿Ì
+
 public:
 	Title(){ init(); };
 	virtual void init();
 	virtual void draw();
-	virtual void flush(GLFWwindow* win){};
+	virtual void update(GLFWwindow* win);
+
 };
