@@ -85,6 +85,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Blocks\Block.cpp" />
+    <ClCompile Include="Hitbox\Hitbox.cpp" />
     <ClCompile Include="Player\Player.cpp" />
     <ClCompile Include="Scenes\GameScene.cpp" />
     <ClCompile Include="Scenes\Level.cpp" />
@@ -93,6 +94,7 @@
     <ClCompile Include="TextRenderer\TextRenderer.cpp" />
     <ClCompile Include="Textures\Textures.cpp" />
     <ClInclude Include="Blocks\Blocks.h" />
+    <ClInclude Include="Hitbox\Hitbox.h" />
     <ClInclude Include="Player\Player.h" />
     <ClInclude Include="Scenes\GameScene.h" />
     <ClInclude Include="Scenes\Level.h" />

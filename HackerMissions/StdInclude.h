@@ -7,6 +7,7 @@
 #include <GLEW\glew.h>
 #include <GLFW\glfw3.h>
 #include <sstream>
+#include <algorithm>
 using std::cout;
 using std::endl;
 using std::string;

@@ -23,8 +23,8 @@ public:
 
 	void levelup();
 	int levelid;
-	level levelnow;
 	Player player;
+	level levelnow;
 
 	void Scroll(double offsety);
 };

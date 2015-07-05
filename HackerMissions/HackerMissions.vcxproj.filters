@@ -53,6 +53,9 @@
     <Filter Include="源代码\Scenes\StoryLine">
       <UniqueIdentifier>{2a01911f-64f1-4d62-b9e7-b1dcac420486}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源代码\Hitbox">
+      <UniqueIdentifier>{171825fc-bbac-4001-9e90-8a77fb9d5362}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -87,6 +90,9 @@
     </ClCompile>
     <ClCompile Include="Scenes\Story.cpp">
       <Filter>源代码\Scenes\StoryLine</Filter>
+    </ClCompile>
+    <ClCompile Include="Hitbox\Hitbox.cpp">
+      <Filter>源代码\Hitbox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +134,9 @@
     </ClInclude>
     <ClInclude Include="Scenes\Story.h">
       <Filter>源代码\Scenes\StoryLine</Filter>
+    </ClInclude>
+    <ClInclude Include="Hitbox\Hitbox.h">
+      <Filter>源代码\Hitbox</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

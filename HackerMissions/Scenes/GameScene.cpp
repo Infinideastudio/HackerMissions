@@ -38,6 +38,13 @@ void GameScene::drawBlock(int blockid, int x, int y){  //¡Ÿ ±µƒ£¨‘⁄rendererªπ√ª≥
 		glTexCoord2d(tx + size, ty);
 		glVertex2i((int)(xpos + blocksize), (int)(ypos + blocksize));
 	}glEnd();
+	glDisable(GL_TEXTURE_2D);
+	glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+	glPointSize((int)blocksize*0.5);
+	glBegin(GL_POINTS); {
+		glVertex2i(window_w / 2, window_h / 2);
+	}glEnd();
+	glEnable(GL_TEXTURE_2D);
 }
 
 void GameScene::init(){
@@ -77,24 +84,25 @@ void GameScene::Scroll(double offsety){
 	else blocksize /= 1.1;
 }
 void GameScene::update(GLFWwindow* win){
+	static bool INFp;
 	static int sentenceNum; //æÁ«È”Ôæ‰±‡∫≈
-	//ÕÊº““∆∂Ø
-	if (glfwGetKey(win, 'A'))player.xpos -= 0.05;
-	if (glfwGetKey(win, 'D'))player.xpos += 0.05;
-	if (glfwGetKey(win, 'W'))player.ypos -= 0.05;
-	if (glfwGetKey(win, 'S'))player.ypos += 0.05;
+	//ÕÊº“∏¸–¬
+	player.update(win);
 	//º∆À„FPS
 	if (glfwGetTime()-currentTimer > 1){
 		currentTimer = (int)glfwGetTime();
 		fps = fpsCount; fpsCount = 0;
 	}
-	//Àı∑≈µÿÕº
-	if (glfwGetKey(win, 'Z'))blocksize *= 1.005;
-	if (glfwGetKey(win, 'X'))blocksize /= 1.005;
-	fixedX = (int)((800.0 - blocksize*levelnow.mapx) / 2 - blocksize*player.xpos);
-	fixedY = (int)((500.0 - blocksize*levelnow.mapy) / 2 - blocksize*player.ypos);
+	//Àı∑≈µÿÕº£®∆‰ µ «µ˜Ω⁄Àı∑≈£¨Àı∑≈“—æ≠”…πˆ¬÷øÿ÷∆¡À£©
+	//if (glfwGetKey(win, 'Z'))blocksize *= 1.005;
+	//if (glfwGetKey(win, 'X'))blocksize /= 1.005;
+	fixedX = (int)((800.0 - blocksize*levelnow.mapx) / 2 - blocksize*player.getxpos());
+	fixedY = (int)((500.0 - blocksize*levelnow.mapy) / 2 + blocksize*player.getypos());
 	//Õ®πÿ∫Û√≈
-	if (glfwGetKey(win, 'I') && glfwGetKey(win, 'N') && glfwGetKey(win, 'F')&&levelid!=-1)levelup();
+	if (INFp == false && glfwGetKey(win, 'I') && glfwGetKey(win, 'N') && glfwGetKey(win, 'F') && levelid != -1){
+		INFp = true;levelup();
+	}
+	if (!glfwGetKey(win, 'I') || !glfwGetKey(win, 'N') || !glfwGetKey(win, 'F'))INFp = false;
 	//œ‘ ææÁ«È
 	if (!MessageBox::Shown()) MessageBox::Show(storyLine.get());
 }
