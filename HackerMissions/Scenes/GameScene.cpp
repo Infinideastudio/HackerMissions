@@ -76,9 +76,10 @@ void GameScene::Scroll(double offsety){
 }
 void GameScene::update(GLFWwindow* win){
 	static bool INFp;
-	static int sentenceNum; //剧情语句编号
 	//玩家更新
-	player.update(win);
+	int newX, newY;
+	player.update(win, newX, newY);
+	player.hitTest(newX, newY, levelnow);
 	//计算FPS
 	if (glfwGetTime()-currentTimer > 1){
 		currentTimer = (int)glfwGetTime();

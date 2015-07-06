@@ -6,14 +6,14 @@ void AABB::init(double xi, double xa, double yi, double ya){
 	return;
 }
 
-AABB AABB::expand(double xa, double ya, double za){
+AABB AABB::expand(double xa, double ya){
 	AABB ret = *this;
 	if (xa > 0.0)ret.xmax += xa; else ret.xmin += xa;
 	if (ya > 0.0)ret.ymax += ya; else ret.ymin += ya;
 	return ret;
 }
 
-void AABB::move(double xa, double ya, double za){
+void AABB::move(double xa, double ya){
 	xmax += xa; xmin += xa;
 	ymax += ya; ymin += ya;
 }
