@@ -56,6 +56,9 @@
     <Filter Include="源代码\Hitbox">
       <UniqueIdentifier>{171825fc-bbac-4001-9e90-8a77fb9d5362}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源代码\Scenes\Event">
+      <UniqueIdentifier>{d6dbe5b6-3295-4e2d-a61b-0e996af3f81d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -93,6 +96,9 @@
     </ClCompile>
     <ClCompile Include="Hitbox\Hitbox.cpp">
       <Filter>源代码\Hitbox</Filter>
+    </ClCompile>
+    <ClCompile Include="Scenes\Event.cpp">
+      <Filter>源代码\Scenes\Event</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +143,9 @@
     </ClInclude>
     <ClInclude Include="Hitbox\Hitbox.h">
       <Filter>源代码\Hitbox</Filter>
+    </ClInclude>
+    <ClInclude Include="Scenes\Event.h">
+      <Filter>源代码\Scenes\Event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

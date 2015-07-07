@@ -87,6 +87,7 @@
     <ClCompile Include="Blocks\Block.cpp" />
     <ClCompile Include="Hitbox\Hitbox.cpp" />
     <ClCompile Include="Player\Player.cpp" />
+    <ClCompile Include="Scenes\Event.cpp" />
     <ClCompile Include="Scenes\GameScene.cpp" />
     <ClCompile Include="Scenes\Level.cpp" />
     <ClCompile Include="Scenes\Story.cpp" />
@@ -96,6 +97,7 @@
     <ClInclude Include="Blocks\Blocks.h" />
     <ClInclude Include="Hitbox\Hitbox.h" />
     <ClInclude Include="Player\Player.h" />
+    <ClInclude Include="Scenes\Event.h" />
     <ClInclude Include="Scenes\GameScene.h" />
     <ClInclude Include="Scenes\Level.h" />
     <ClInclude Include="Scenes\Story.h" />

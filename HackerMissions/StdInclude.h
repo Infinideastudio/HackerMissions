@@ -8,6 +8,7 @@
 #include <GLFW\glfw3.h>
 #include <sstream>
 #include <algorithm>
+#include <functional>
 using std::cout;
 using std::endl;
 using std::string;

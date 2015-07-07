@@ -38,6 +38,9 @@ void GameScene::init(){
 	currentTimer = static_cast<int>(glfwGetTime());
 	fpsCount = fps = 0;
 	glfwSetScrollCallback(win, &scrollCall);
+	//Event eventtest(AABB(0, 0, 100, 100), []()->bool{return true; });
+	//eventtest.setAction([&]{cout << eventtest.getEventType(); });
+
 }
 
 void GameScene::draw(){

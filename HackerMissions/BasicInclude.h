@@ -7,6 +7,7 @@
 #include "TextRenderer\TextRenderer.h"
 #include "TextRenderer\MessageBox.h"
 #include "Player\Player.h"
+#include "Scenes\Event.h"
 #include "Scenes\BasicScene.h"
 #include "Scenes\TitleScene.h"
 #include "Scenes\GameScene.h"
