@@ -23,5 +23,12 @@ namespace MapMaker
             frm.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form frm = new Form3();
+            frm.Show();
+            this.Hide();
+        }
     }
 }

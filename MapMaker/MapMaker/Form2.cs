@@ -58,18 +58,24 @@ namespace MapMaker
             xunit = 400 / xall;
             yunit = 250 / yall;
             MapData = new byte[xall, yall];
-            g.DrawImage(textures[0], 0, 0, 399, 249);
-            g.DrawLine(new Pen(Color.Black, 1), new Point(0, 0), new Point(399, 0));
-            g.DrawLine(new Pen(Color.Black, 1), new Point(399, 0), new Point(399, 249));
-            g.DrawLine(new Pen(Color.Black, 1), new Point(0, 249), new Point(399, 249));
-            g.DrawLine(new Pen(Color.Black, 1), new Point(0, 0), new Point(0, 249));
+            g.DrawLine(new Pen(Color.Gray, 1), new Point(0, 0), new Point(399, 0));
+            g.DrawLine(new Pen(Color.Gray, 1), new Point(399, 0), new Point(399, 249));
+            g.DrawLine(new Pen(Color.Gray, 1), new Point(0, 249), new Point(399, 249));
+            g.DrawLine(new Pen(Color.Gray, 1), new Point(0, 0), new Point(0, 249));
+            for (int x = 0; x < xall; x++)
+            {
+                for (int y = 0; y < yall; y++)
+                {
+                    g.DrawImage(textures[0], x * xunit, y * yunit, xunit, yunit);
+                }
+            }
             for (int x = 1; x < xall; x++)
             {
-                g.DrawLine(new Pen(Color.Black, 1), new Point((int)(x * xunit), 0), new Point((int)(x * xunit), 250));
+                g.DrawLine(new Pen(Color.Gray, 1), new Point((int)(x * xunit), 0), new Point((int)(x * xunit), 250));
             }
             for (int y = 1; y < yall; y++)
             {
-                g.DrawLine(new Pen(Color.Black, 1), new Point(0, (int)(y * yunit)), new Point(400, (int)(y * yunit)));
+                g.DrawLine(new Pen(Color.Gray, 1), new Point(0, (int)(y * yunit)), new Point(400, (int)(y * yunit)));
             }
             pictureBox1.Image = bmp;
         }
@@ -85,7 +91,6 @@ namespace MapMaker
             Bitmap bmp = new Bitmap(pictureBox1.Image);
             Graphics g = Graphics.FromImage(bmp);
             g.DrawImage(textures[setval], xpos * xunit, ypos * yunit, xunit, yunit);
-            //g.DrawString(((int)setval).ToString(), new Font("微软雅黑", 16), new SolidBrush(Color.Black), xpos*xunit, ypos*yunit);
             pictureBox1.Image = bmp;
         }
 
@@ -97,6 +102,13 @@ namespace MapMaker
         private void button3_Click(object sender, EventArgs e)
         {
             System.Environment.Exit(0);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form frm = new Form3(int.Parse(textBox3.Text));
+            frm.Show();
+            this.Hide();
         }
     }
 }

@@ -38,6 +38,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,11 +132,22 @@
             this.textBox3.TabIndex = 7;
             this.textBox3.Text = "1";
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(439, 196);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(90, 31);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "编辑事件";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 274);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button3);
@@ -168,5 +180,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button4;
     }
 }

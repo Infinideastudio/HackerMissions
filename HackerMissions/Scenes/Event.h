@@ -16,6 +16,7 @@ private:
 public:
 	Event() :eventType(EVENT_NORMAL){};
 	Event(Action actset) :act(actset), eventType(EVENT_NORMAL){};
+	Event(bool OnceLimit) :eventType(OnceLimit ? EVENT_ONCE : EVENT_NORMAL){};
 	Event(AABB eventBox) :triggerBox(eventBox), eventType(EVENT_NORMAL){};
 	Event(AABB eventBox, bool OnceLimit) :triggerBox(eventBox), eventType(OnceLimit ? EVENT_ONCE : EVENT_NORMAL){};
 	Event(AABB eventBox, Action actset) :triggerBox(eventBox), act(actset), eventType(EVENT_NORMAL){};
